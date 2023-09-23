@@ -1,55 +1,74 @@
 #include "sort.h"
-/**
- * quick_sort - sorting an array using the quick sort algorithm
- *
- * @array: the array to sort
- * @size: the size of the array
- */
 
+/**
+ * lomuto_partition - Lomuto partition scheme
+ *
+ *
+ * @array: The array to be sorted
+ * @low: The low index
+ * @high: The high index
+ * @size: The size of the array
+ *
+ * Return: The index of the pivot element
+ */
+int lomuto_partition(int *array, int low, int high, size_t size)
+{
+	int pivot = array[high];
+	int i = low - 1, j, temp;
+
+	for (j = low; j <= high - 1; j++)
+	{
+		if (array[j] <= pivot)
+		{
+			i++;
+			if (i != j)
+			{
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+				print_array(array, size);
+			}
+		}
+	}
+	if (i + 1 != high)
+	{
+		temp = array[i + 1];
+		array[i + 1] = array[high];
+		array[high] = temp;
+		print_array(array, size);
+	}
+	return (i + 1);
+}
+
+/**
+ * quicksort - Recursive Quick sort
+ *
+ * @array: The array to be sorted
+ * @low: The low index
+ * @high: The high index
+ * @size: the array size
+ */
+void quicksort(int *array, int low, int high, size_t size)
+{
+	int pivot;
+
+	if (low < high)
+	{
+		pivot = lomuto_partition(array, low, high, size);
+		quicksort(array, low, pivot - 1, size);
+		quicksort(array, pivot + 1, high, size);
+	}
+}
+
+/**
+ * quick_sort - quick sort algorithm
+ *
+ * @array: The array to sort
+ * @size: The array size
+ */
 void quick_sort(int *array, size_t size)
 {
-	if (size == 1 || !array)
+	if (array == NULL || size < 2)
 		return;
-	quicksort(array, size, size, array);
-}
-/**
- * quicksort - pomudo partition
- *
- * @array: the array to sort
- * @size: the size of he array
- */
-
-void quicksort(int *array, size_t size,  size_t arr_size, int *array_o)
-{
-        size_t left, right, i;
-        int pivot, swap;
-
-	if (size <= 1)
-		return;
-	pivot = array[size - 1];
-        left = size - 2;
-        right = 0;
-        for (i = 0; i < size - 1; i++)
-        {
-                if (left < right)
-                        break;
-                if (array[right] > pivot && array[left] < pivot)
-                {
-                        swap = array[right];
-                        array[right] = array[left];
-                        array[left] = swap;
-                }
-                else
-                {
-                        if (array[right] < pivot)
-                                right++;
-                        if (array[left] > pivot)
-                                left--;
-                }
-        }
-        array[size - 1] = array[right];
-        array[right] = pivot;
-	print_array(array_o, arr_size);
-        quicksort(array, right, arr_size, array_o);
-        quicksort((array + right + 1), size - right - 1, arr_size, array_o);
+	quicksort(array, 0, size - 1, size);
 }
