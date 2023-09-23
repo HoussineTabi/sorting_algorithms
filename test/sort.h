@@ -5,6 +5,7 @@
 void bubble_sort(int *array, size_t size);
 void print_array(const int *array, size_t size);
 void selection_sort(int *, size_t);
+<<<<<<< HEAD
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -20,4 +21,7 @@ struct listint_s *next;
 } listint_t;
 void print_list(const listint_t *list);
 void insertion_sort_list(listint_t **list);
+=======
+void quick_sort(int *, size_t);
+>>>>>>> refs/remotes/origin/master
 #endif /* SORT_H */
