@@ -22,5 +22,9 @@ void insertion_sort_list(listint_t **list);
 void swap_nodes(listint_t **list, listint_t **node1, listint_t *node2);
 void quick_sort(int *, size_t);
 void print_list(const listint_t *);
+<<<<<<< HEAD
 void cocktail_sort_list(listint_t **list);
+=======
+void shell_sort(int *, size_t);
+>>>>>>> db2371e35e1cee540a778450945ddb883d9db8f1
 #endif /* SORT_H */
