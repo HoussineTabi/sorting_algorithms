@@ -66,12 +66,4 @@ void cocktail_sort_list(listint_t **list)
 		prev = next;
 		next = next->next;
 	}
-	tail = prev;
-	while (tail)
-	{
-		printf("tail->data = %d\n", tail->n);
-		tail = tail->prev;
-	}
-	printf("\n");
-	/*printTail(tail, 0);*/
 }
