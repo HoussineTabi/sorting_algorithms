@@ -57,6 +57,26 @@ int *merge(int *arr, int *arrL, int *arrR, size_t size,
 	return (arr);
 }
 /**
+ * printArray - this function will print an array
+ * @array: array to print
+ * @size: size of the array
+ */
+void printArray(int *array, size_t size)
+{
+	size_t i = 0;
+	if (size == 0)
+		return;
+	while (i < size)
+	{
+		if (i == 0)
+			printf("%d", array[i]);
+		else
+			printf(", %d", array[i]);
+		i++;
+	}
+	printf("\n");
+}
+/**
  *merge_sort - this function will sort an array using merge algorithm
  *@array: an array that we want to sort
  *@size: size of that array
@@ -88,6 +108,13 @@ void merge_sort(int *array, size_t size)
 	merge_sort(arrL, left);
 	merge_sort(arrR, size - left);
 	merge(array, arrL, arrR, size, left, size - left);
+	printf("Merging...\n");
+	printf("[left]: ");
+	printArray(arrL, left);
+	printf("[right]: ");
+	printArray(arrR, size - left);
+	printf("[Done]: ");
+	printArray(array, size);
 	free(arrR);
 	free(arrL);
 }
