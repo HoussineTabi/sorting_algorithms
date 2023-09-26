@@ -17,7 +17,7 @@ void counting_sort(int *array, size_t size)
 
 	max = array[0];
 	while (count < size)
-	{	
+	{
 		if (array[count] > max)
 			max = array[count];
 		count++;
@@ -38,7 +38,7 @@ void counting_sort(int *array, size_t size)
 	while (i <= max)
 	{
 		if (i > 0)
-			auxiliary_array[i+1] = auxiliary_array[i] + auxiliary_array[i + 1];
+			auxiliary_array[i + 1] = auxiliary_array[i] + auxiliary_array[i + 1];
 		if (i == 0)
 			printf("%d", auxiliary_array[i]);
 		else
