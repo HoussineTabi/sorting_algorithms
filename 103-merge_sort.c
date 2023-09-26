@@ -64,6 +64,7 @@ int *merge(int *arr, int *arrL, int *arrR, size_t size,
 void printArray(int *array, size_t size)
 {
 	size_t i = 0;
+
 	if (size == 0)
 		return;
 	while (i < size)
