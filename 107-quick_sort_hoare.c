@@ -2,7 +2,7 @@
 
 /**
  *partition - my function to partition an array
- *@array: my part array to partition
+ *@A: my part array to partition
  *@start: index of start of partition
  *@end: index of end of partition
  *Return: this function return an nteger
@@ -44,7 +44,7 @@ void sortedQuickly(int *array, size_t start, size_t end, size_t size)
 	if (start < end)
 	{
 		pivoIndex = partition(array, start, end);
-		sortedQuickly(array, start-1, pivoIndex  - 1, size);
+		sortedQuickly(array, start - 2, pivoIndex  - 1, size);
 		sortedQuickly(array, pivoIndex + 1, end, size);
 		print_array(array, size);
 	}
