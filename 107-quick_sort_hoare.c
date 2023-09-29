@@ -44,7 +44,7 @@ void sortedQuickly(int *array, size_t start, size_t end, size_t size)
 	if (start < end)
 	{
 		pivoIndex = partition(array, start, end);
-		sortedQuickly(array, start + 1, pivoIndex , size);
+		sortedQuickly(array, start + 1, pivoIndex - 1, size);
 		sortedQuickly(array, pivoIndex + 1, end, size);
 		print_array(array, size);
 	}
